@@ -33,3 +33,13 @@ services:
         ipv4_address: 172.50.0.3
     volumes:
       - shared-volume:/src/log 
+      
+  data:
+    image: data-api-docker:latest
+    ports:
+      - "8002:8000"
+    networks:
+      my_network:
+        ipv4_address: 172.50.0.4
+    volumes:
+      - shared-volume:/src/log 
