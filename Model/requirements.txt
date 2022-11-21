@@ -1,6 +1,0 @@
-pandas
-fastapi
-uvicorn
-pydantic
-typing
-pickle

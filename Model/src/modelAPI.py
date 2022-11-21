@@ -31,11 +31,12 @@ class Features(BaseModel):
     MonthlyCharges: float
     TotalCharges: float
     
+  
 # Instantiate the FastAPI module
 api = FastAPI(
     title="Churn Project",
     description="Objective : Run model for prediction" + 
-    "Author : C. Hoareau / W. Siounandan",
+    "by Author : C. Hoareau / W. Siounandan",
     version="1.0.0"
     )
 
@@ -52,7 +53,7 @@ async def get_prediction(data: Features):
 
     try:
         
-        model_file="../model.pkl"
+        model_file="model2.pkl"
         with open(model_file, 'rb') as f:
             model = pickle.load(f)
         
@@ -62,9 +63,9 @@ async def get_prediction(data: Features):
             
         customer = pd.DataFrame.from_dict(dictData)
         y_pred = model.predict(customer)
-        y_pred_prob = model.predict_proba(customer)[:,1]
+        #y_pred_prob = model.predict_proba(customer)[:,1]
         
-        return str(y_pred_prob) + y_pred[0]        
+        return  y_pred[0] #str(y_pred_prob) + y_pred[0]        
 
     except IndexError:
         return {}
