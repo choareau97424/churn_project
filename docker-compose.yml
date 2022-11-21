@@ -1,0 +1,35 @@
+version: '3.9'
+
+volumes:
+  shared-volume:
+  
+networks:
+
+  my_network:
+    driver: bridge
+    ipam:
+     config:
+      - subnet: 172.50.0.0/16
+        gateway: 172.50.0.1
+        
+services:
+
+  model:
+    image: model-api-docker:latest
+    ports:
+      - "8000:8000"
+    networks:
+      my_network:
+        ipv4_address: 172.50.0.2
+    volumes:
+      - shared-volume:/src/log 
+      
+  web:
+    image: web-api-docker:latest
+    ports:
+      - "8001:8000"
+    networks:
+      my_network:
+        ipv4_address: 172.50.0.3
+    volumes:
+      - shared-volume:/src/log 

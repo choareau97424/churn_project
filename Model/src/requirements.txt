@@ -1,0 +1,6 @@
+pandas
+fastapi
+uvicorn
+pydantic
+typing
+scikit-learn == 1.0.2
