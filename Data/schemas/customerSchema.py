@@ -1,10 +1,6 @@
 from pydantic import BaseModel
 
 class CustomerSchema(BaseModel):
-    customerID:str = None
-    testType: str = None
-    subject: str = None
-    limit: int = None
     gender: str=None
     seniorcitizen: int = None
     partner: str = None
