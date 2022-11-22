@@ -20,7 +20,7 @@ def read_root():
     """
     return """
     <html>
-    <h2>FastAPI for Exams questions</h2>
+    <h2>FastAPI for Churn customer</h2>
     <body>
     Please refer to the documentation for more information at the following link: /docs 
     </body>
